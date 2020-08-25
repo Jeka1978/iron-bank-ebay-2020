@@ -1,9 +1,15 @@
 package com.ebay.ironbank.services;
 
 import com.ebay.ironbank.model.Bank;
+import com.ebay.ironbankrulesstarter.ConditionOnProd;
+import com.ebay.ironbankrulesstarter.NotEnoughMoneyException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.system.JavaVersion;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -13,6 +19,7 @@ import javax.transaction.Transactional;
  * @author Evgeny Borisov
  */
 @EbayService
+@ConditionOnProd
 public class BankServiceImpl implements BankService {
 
 
@@ -58,7 +65,7 @@ public class BankServiceImpl implements BankService {
     public boolean loan(String name, int amount) {
         Bank bank = bankDao.findAll().get(0);
         if (amount > bank.getBalance()) {
-            throw new IllegalStateException("not enough money in the bank");
+            throw new NotEnoughMoneyException("not enough money in the bank");
         }
 
         if (predictionService.willSurvive(name)) {

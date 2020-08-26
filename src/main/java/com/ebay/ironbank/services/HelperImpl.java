@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  */
 public class HelperImpl implements Helper {
     @Override
-    @Scheduled(fixedDelay = 1000)
+//    @Scheduled(fixedDelay = 1000)
     public void help() {
         System.out.println("help");
     }

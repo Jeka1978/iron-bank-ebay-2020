@@ -20,6 +20,7 @@ import javax.transaction.Transactional;
  */
 @EbayService
 @ConditionOnProd
+@Deprecated
 public class BankServiceImpl implements BankService {
 
 
@@ -41,6 +42,7 @@ public class BankServiceImpl implements BankService {
     private Helper helper;
 
 
+    @Override
     @EventListener(ContextRefreshedEvent.class)
     @Transactional
     public void initializeBankAffiliates(ContextRefreshedEvent event) {
@@ -76,6 +78,13 @@ public class BankServiceImpl implements BankService {
         }
 
 
+    }
+
+    @Override
+    @Deprecated
+    @Scheduled(fixedDelay = 1000)
+    public void veryOld() {
+        System.out.println("I need a vacation....");
     }
 
 

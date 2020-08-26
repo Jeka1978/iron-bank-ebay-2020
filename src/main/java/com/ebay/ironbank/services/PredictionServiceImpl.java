@@ -3,6 +3,8 @@ package com.ebay.ironbank.services;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  * @author Evgeny Borisov
  */

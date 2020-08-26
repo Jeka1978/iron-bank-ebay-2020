@@ -2,6 +2,7 @@ package com.ebay.ironbank.legacy;
 
 import com.ebay.ironbank.controllers.ProductValidator;
 import com.ebay.ironbank.model.Product;
+import com.ebay.ironbankrulesstarter.Singleton;
 
 import java.util.Optional;
 

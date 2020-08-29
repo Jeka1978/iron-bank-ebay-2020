@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @ImportResource("classpath:aop.xml")
-@EnableScheduling
+//@EnableScheduling
 public class IronBankApplication {
 
 

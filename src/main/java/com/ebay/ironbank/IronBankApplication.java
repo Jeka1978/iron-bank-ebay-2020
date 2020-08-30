@@ -9,7 +9,8 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @ImportResource("classpath:aop.xml")
-@SpringBootApplication(exclude = {IronBankExceptionHandlingAspectConf.class})
+@SpringBootApplication
+//@SpringBootApplication(exclude = {IronBankExceptionHandlingAspectConf.class})
 //@EnableAutoConfiguration(exclude ={IronBankExceptionHandlingAspectConf.class} )
 //@EnableScheduling
 public class IronBankApplication {

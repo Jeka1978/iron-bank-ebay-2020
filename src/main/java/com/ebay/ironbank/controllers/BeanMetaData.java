@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BeanMetaData {
     private String beanName;
-    private String classLocation;
     private String className;
 
 }

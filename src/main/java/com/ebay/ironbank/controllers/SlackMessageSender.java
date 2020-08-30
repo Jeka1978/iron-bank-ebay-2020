@@ -6,16 +6,14 @@ import org.springframework.stereotype.Component;
  * @author Evgeny Borisov
  */
 @Component
-public class TelegramMessageSender implements MessageSender {
+public class SlackMessageSender implements MessageSender {
     @Override
     public void send(Message message) {
-        System.out.println(message+"  was sent by telegram");
+        System.out.println(message+" sent by slack");
     }
 
     @Override
     public String getMyDeliverType() {
-        return "telegram";
+        return "slack";
     }
-
-
 }

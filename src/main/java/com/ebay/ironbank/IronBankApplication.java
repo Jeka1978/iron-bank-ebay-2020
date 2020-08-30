@@ -1,13 +1,16 @@
 package com.ebay.ironbank;
 
+import com.ebay.ironbankrulesstarter.IronBankExceptionHandlingAspectConf;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@SpringBootApplication
 @ImportResource("classpath:aop.xml")
+@SpringBootApplication(exclude = {IronBankExceptionHandlingAspectConf.class})
+//@EnableAutoConfiguration(exclude ={IronBankExceptionHandlingAspectConf.class} )
 //@EnableScheduling
 public class IronBankApplication {
 
@@ -25,3 +28,4 @@ public class IronBankApplication {
     }
 
 }
+//@SpringBootApplication(exclude = {IronBankExceptionHandlingAspectConf.class})

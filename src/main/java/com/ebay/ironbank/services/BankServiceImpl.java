@@ -1,7 +1,6 @@
 package com.ebay.ironbank.services;
 
 import com.ebay.ironbank.model.Bank;
-import com.ebay.ironbankrulesstarter.ConditionOnProd;
 import com.ebay.ironbankrulesstarter.NotEnoughMoneyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
@@ -19,7 +18,6 @@ import javax.transaction.Transactional;
  * @author Evgeny Borisov
  */
 @EbayService
-@ConditionOnProd
 @Deprecated
 public class BankServiceImpl implements BankService {
 
@@ -54,6 +52,7 @@ public class BankServiceImpl implements BankService {
     public long getBalance() {
         return bankDao.findAll().stream().mapToLong(Bank::getBalance).sum();
     }
+
 
 
     @Override

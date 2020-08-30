@@ -6,4 +6,6 @@ package com.ebay.ironbank.controllers;
 public interface MessageSender {
 
     void send(Message message);
+
+    String getMyDeliverType();
 }
